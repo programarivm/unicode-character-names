@@ -4,20 +4,27 @@ const input = document.querySelector("input")
 const button = document.querySelector("button")
 const table = document.querySelector("table")
 
-const options = {
-  includeScore: true,
-  minMatchCharLength: 2,
-  threshold: 0.4
-}
-
 fetch('./unicode.json')
   .then(response => response.json())
   .then(unicode => {
-    button.addEventListener("click", function( event ) {
-      const names = Object.keys(unicode)
-      const fuse = new Fuse(names, options)
-      const result = fuse.search(input.value)
+    const addRow = (el, found, i) => {
+      const newRow = el.insertRow(i)
+      const newCell  = newRow.insertCell(0)
+      const newText  = document.createTextNode(unicode[found.item])
+      newCell.appendChild(newText)
+    }
 
-      console.log(result);
+    button.addEventListener("click", function(event) {
+      table.innerHTML = ''
+      const fuse = new Fuse(
+        Object.keys(unicode), {
+          includeScore: true,
+          minMatchCharLength: 2,
+          threshold: 0.4
+      })
+      fuse.search(input.value)
+        .forEach((found, i) => {
+          addRow(table, found, i)
+        });
     })
   })
