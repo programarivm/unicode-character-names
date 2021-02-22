@@ -23,9 +23,9 @@ fetch('./unicode.json')
       table.innerHTML = ''
       const fuse = new Fuse(
         Object.keys(unicode), {
-          includeScore: true,
-          minMatchCharLength: 2,
-          threshold: 0.3
+          minMatchCharLength: 3,
+          threshold: 0.3,
+          distance: 33
       })
       fuse.search(input.value)
         .forEach((found, i) => {
