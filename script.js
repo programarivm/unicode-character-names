@@ -19,7 +19,7 @@ fetch('./unicode.json')
       cellDescription.appendChild(textDescription)
     }
 
-    button.addEventListener("click", function(event) {
+    const fuzzySearch = (e) => {
       table.innerHTML = ''
       const fuse = new Fuse(
         Object.keys(unicode), {
@@ -31,5 +31,15 @@ fetch('./unicode.json')
         .forEach((found, i) => {
           addRow(table, found, i)
         });
-    })
+    }
+
+    const inputSearch = (e) => {
+      if (e.keyCode === 13) {
+        e.preventDefault()
+        fuzzySearch()
+      }
+    }
+
+    input.addEventListener('keydown', inputSearch);
+    button.addEventListener("click", fuzzySearch)
   })
