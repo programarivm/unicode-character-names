@@ -7,7 +7,7 @@ const table = document.querySelector("table")
 fetch('./unicode.json')
   .then(response => response.json())
   .then(unicode => {
-    
+
     const addRow = (el, found, i) => {
       const newRow = el.insertRow(i)
       const cellChar  = newRow.insertCell(0)
@@ -25,7 +25,7 @@ fetch('./unicode.json')
         Object.keys(unicode), {
           includeScore: true,
           minMatchCharLength: 2,
-          threshold: 0.4
+          threshold: 0.3
       })
       fuse.search(input.value)
         .forEach((found, i) => {
