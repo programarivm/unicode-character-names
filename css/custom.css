@@ -1,0 +1,9 @@
+table#result td:nth-child(1) {
+  font-size: 3rem;
+  padding-right: 1rem
+}
+
+article {
+  color: #707070;
+  margin-top: 2rem
+}

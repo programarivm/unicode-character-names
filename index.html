@@ -5,87 +5,123 @@
     <title>Search Unicode characters by name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A search engine for emojis, special characters, flags, emoticons, symbols and many more! Twitter, Facebook, TikTok, and so on.">
+    <link rel="icon" type="image/png" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <h1>Search emoji, special characters, flags, cute symbols and more!</h1>
-    <h2>Easy as pie, type the name you want and copy</h2>
-    <input type="search" placeholder="Type a name...">
-    <button>Search</button>
-    <table></table>
-    <hr />
-    <h3>Social Media Special Characters</h3>
-    <p>
-      If you're an active social media user, you may need an awesome search engine like this one to make your posts more exciting,
-      funny and sharable. This is definitely the tool you're looking for to impress your friends and loved ones. Whether it is on Twitter,
-      Facebook, Instagram, TikTok, YouTube, Pinterest, or any of the top social media sites you should care about in 2021.
-    </p>
-    <h3>What Is a Unicode Character?</h3>
-    <p>
-      Despite this rather unappealing name, Unicode is an IT standard that allows to encode any imaginable character that exists in
-      this world. Ranging from extinct ancient scripts and symbols, to funny emoji, lovely emoticons, faces, ideograms, and cute animals.
-      Unicode supports the character you're searching for. The standard has a total of about 143,000 characters, and
-      each of which is supposed to have a name that allows searching.
-    </p>
-    <table>
-      <caption>Faces examples</caption>
-      <tr>
-        <td>😶</td>
-        <td>FACE WITHOUT MOUTH</td>
-      </tr>
-      <tr>
-        <td>🙄</td>
-        <td>FACE WITH ROLLING EYES</td>
-      </tr>
-      <tr>
-        <td>🐼</td>
-        <td>PANDA FACE</td>
-      </tr>
-    </table>
-    <table>
-      <caption>Food examples</caption>
-      <tr>
-        <td>🥧</td>
-        <td>PIE</td>
-      </tr>
-      <tr>
-        <td>🍹</td>
-        <td>TROPICAL DRINK</td>
-      </tr>
-      <tr>
-        <td>🥝</td>
-        <td>KIWIFRUIT</td>
-      </tr>
-    </table>
-    <table>
-      <caption>Office examples</caption>
-      <tr>
-        <td>🖵</td>
-        <td>SCREEN</td>
-      </tr>
-      <tr>
-        <td>🖨</td>
-        <td>PRINTER</td>
-      </tr>
-      <tr>
-        <td>🏢</td>
-        <td>OFFICE BUILDING</td>
-      </tr>
-    </table>
-    <table>
-      <caption>Animals examples</caption>
-      <tr>
-        <td>🐈</td>
-        <td>CAT</td>
-      </tr>
-      <tr>
-        <td>🐦</td>
-        <td>BIRD</td>
-      </tr>
-      <tr>
-        <td>🐾</td>
-        <td>PAW PRINTS</td>
-      </tr>
-    </table>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="display-4">
+            Search emoji, <br />
+            special characters, <br />
+            flags, <br />
+            cute symbols <br />
+            and more!
+          </h1>
+        </div>
+        <div class="col-lg-6 mt-5">
+          <p>Easy as pie, type the name you want and copy</p>
+          <div class="form-group row">
+            <div class="col-lg-10">
+              <input type="search" class="form-control" placeholder="Type a name...">
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn-primary">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table id="result"></table>
+      <hr />
+      <article>
+        <h3>Social Media Special Characters</h3>
+        <p>
+          If you're an active social media user, you may need an awesome search engine like this one to make your posts more exciting,
+          funny and sharable. This is definitely the tool you're looking for to impress your friends and loved ones. Whether it is on Twitter,
+          Facebook, Instagram, TikTok, YouTube, Pinterest, or any of the top social media sites you should care about in 2021.
+        </p>
+        <h3 class="mt-4">What Is a Unicode Character?</h3>
+        <p>
+          Despite this rather unappealing name, Unicode is an IT standard that allows to encode any imaginable character that exists in
+          this world. Ranging from extinct ancient scripts and symbols, to funny emoji, lovely emoticons, faces, ideograms, and cute animals.
+          Unicode supports the character you're searching for. The standard has a total of about 143,000 characters, and
+          each of which is supposed to have a name that allows searching.
+        </p>
+        <table class="table table-striped mt-4">
+          <tbody>
+            <tr>
+              <td colspan="2"><b>Food examples</b></th>
+            </tr>
+            <tr>
+              <td>🥧</td>
+              <td>PIE</td>
+            </tr>
+            <tr>
+              <td>🍹</td>
+              <td>TROPICAL DRINK</td>
+            </tr>
+            <tr>
+              <td>🥝</td>
+              <td>KIWIFRUIT</td>
+            </tr>
+            <tr>
+              <td colspan="2"><b>Faces examples</b></th>
+            </tr>
+            <tr>
+              <td>😶</td>
+              <td>FACE WITHOUT MOUTH</td>
+            </tr>
+            <tr>
+              <td>🙄</td>
+              <td>FACE WITH ROLLING EYES</td>
+            </tr>
+            <tr>
+              <td>🐼</td>
+              <td>PANDA FACE</td>
+            </tr>
+            <tr>
+              <td colspan="2"><b>Office examples</b></td>
+            </tr>
+            <tr>
+              <td>🖵</td>
+              <td>SCREEN</td>
+            </tr>
+            <tr>
+              <td>🖨</td>
+              <td>PRINTER</td>
+            </tr>
+            <tr>
+              <td>🏢</td>
+              <td>OFFICE BUILDING</td>
+            </tr>
+            <tr>
+              <td colspan="2"><b>Animals examples</b></td>
+            </tr>
+            <tr>
+              <td>🐈</td>
+              <td>CAT</td>
+            </tr>
+            <tr>
+              <td>🐦</td>
+              <td>BIRD</td>
+            </tr>
+            <tr>
+              <td>🐾</td>
+              <td>PAW PRINTS</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <footer id="sticky-footer" class="py-4">
+        <ul>
+          <li>Author: <a href="https://programarivm.com">programarivm.com</a></li>
+          <li><a href="https://twitter.com/programarivm">Twitter</a></li>
+          <li><a href="https://github.com/programarivm">GitHub</li>
+        </ul>
+      </footer>
+    </div>
   </body>
 </html>
