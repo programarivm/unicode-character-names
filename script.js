@@ -35,13 +35,13 @@ fetch('./unicode.json')
         });
     }
 
-    const inputSearch = (e) => {
+    const pressEnter = (e) => {
       if (e.keyCode === 13) {
         e.preventDefault();
         fuzzySearch();
       }
     }
 
-    input.addEventListener('keydown', inputSearch);
+    input.addEventListener('keydown', pressEnter);
     searchButton.addEventListener('click', fuzzySearch);
 });
