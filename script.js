@@ -2,30 +2,25 @@ import Fuse from './fuse.esm.min.js';
 
 const input = document.querySelector('input');
 const searchButton = document.getElementById('search-button');
-const table = document.querySelector('table');
+const result = document.getElementById('result');
 
 fetch('./unicode.json')
   .then(response => response.json())
   .then(unicode => {
     const addRow = (el, found, i) => {
-      const newRow = el.insertRow(i);
-      const cellChar  = newRow.insertCell(0);
       const button = document.createElement('button');
       const textChar  = document.createTextNode(unicode[found.item]);
 
       button.className = 'btn btn-light';
+      button.title = found.item;
       button.appendChild(textChar);
       button.addEventListener('click', () => navigator.clipboard.writeText(unicode[found.item]));
-      cellChar.appendChild(button);
 
-      const cellDescription  = newRow.insertCell(1);
-      const textDescription  = document.createTextNode(found.item);
-
-      cellDescription.appendChild(textDescription);
+      result.appendChild(button);
     }
 
     const fuzzySearch = (e) => {
-      table.innerHTML = '';
+      result.innerHTML = '';
 
       const fuse = new Fuse(
         Object.keys(unicode), {
@@ -36,7 +31,7 @@ fetch('./unicode.json')
 
       fuse.search(input.value)
         .forEach((found, i) => {
-          addRow(table, found, i)
+          addRow(result, found, i)
         });
     }
 
