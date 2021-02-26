@@ -10,11 +10,16 @@ fetch('./unicode.json')
     const addRow = (el, found, i) => {
       const newRow = el.insertRow(i);
       const cellChar  = newRow.insertCell(0);
+      const button = document.createElement('button');
       const textChar  = document.createTextNode(unicode[found.item]);
-      cellChar.appendChild(textChar);
+
+      button.className = 'btn btn-light';
+      button.appendChild(textChar);
+      cellChar.appendChild(button);
 
       const cellDescription  = newRow.insertCell(1);
       const textDescription  = document.createTextNode(found.item);
+
       cellDescription.appendChild(textDescription);
     }
 

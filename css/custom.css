@@ -1,6 +1,6 @@
-table#result td:nth-child(1) {
+table#result button {
   font-size: 3rem;
-  padding-right: 1rem
+  margin-right: 1rem
 }
 
 article {
