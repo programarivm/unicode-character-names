@@ -1,7 +1,7 @@
 import Fuse from './fuse.esm.min.js';
 
 const input = document.querySelector('input');
-const button = document.querySelector('button');
+const searchButton = document.getElementById('search-button');
 const table = document.querySelector('table');
 
 fetch('./unicode.json')
@@ -15,6 +15,7 @@ fetch('./unicode.json')
 
       button.className = 'btn btn-light';
       button.appendChild(textChar);
+      button.addEventListener('click', () => navigator.clipboard.writeText(unicode[found.item]));
       cellChar.appendChild(button);
 
       const cellDescription  = newRow.insertCell(1);
@@ -47,5 +48,5 @@ fetch('./unicode.json')
     }
 
     input.addEventListener('keydown', inputSearch);
-    button.addEventListener('click', fuzzySearch);
+    searchButton.addEventListener('click', fuzzySearch);
 });
